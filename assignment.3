@@ -1,0 +1,74 @@
+<! html 
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Image Swap</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+      <img id="img-click" src="https://via.placeholder.com/150x150.png" alt="Original Image">
+      <button id="btn-click">Swap Image</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+
+<! css 
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  img {
+    margin: 20px;
+    border: 2px solid #000;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  
+  // Get the original and changed images by their IDs
+const imgClick = document.getElementById("img-click");
+const imgChanged = "https://via.placeholder.com/150x150.png/ff0000?text=Changed+Image";
+
+// Get the swap button by its ID
+const btnClick = document.getElementById("btn-click");
+
+// Define a variable to keep track of the current image
+let currentImg = "original";
+
+// Add an event listener to the image and swap the image when clicked
+imgClick.addEventListener("click", function() {
+  if (currentImg === "original") {
+    imgClick.src = imgChanged;
+    currentImg = "changed";
+  } else {
+    imgClick.src = "https://via.placeholder.com/150x150.png";
+    currentImg = "original";
+  }
+});
+
+// Add an event listener to the swap button and swap the image
+btnClick.addEventListener("click", function() {
+  if (currentImg === "original") {
+    imgClick.src = imgChanged;
+    currentImg = "changed";
+  } else {
+    imgClick.src = "https://via.placeholder.com/150x150.png";
+    currentImg = "original";
+  }
+});
